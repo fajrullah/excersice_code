@@ -64,6 +64,6 @@ const isPalindrom = (value) => {
         })
     }
 }
-findMaxMin(['sdsds',132,31,1,'sasda',34,5,5])
-multipleNumber(96)
-isPalindrom('mALaM')
+module.exports = {
+    findMaxMin,multipleNumber,isPalindrom
+}
