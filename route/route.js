@@ -7,8 +7,15 @@ const Kategori = new handlerKategori()
 const Buku = new handlerBuku()  
 module.exports = function(app) {
     app.get('/',function(req, res) {
-        res.json({status : 'SUCCESS'})
+        res.json({
+          status : 'SUCCESS',
+          message : 'access client /client'
+      })
     });
+    /**
+     * USER INTERFACE
+     */
+
     /**
      * Data first_name, last_name
      */
