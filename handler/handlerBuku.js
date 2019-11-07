@@ -28,6 +28,15 @@ class handlerBuku {
             .catch(error => console.log(error))
     };
 
+    detailBuku = async () => {
+        return await Buku.findAll({
+                where: this.req.body,
+                order: [ [ 'buku_name', 'ASC' ]]
+            })
+            .then(affectedRow => affectedRow)
+            .catch(error => console.log(error))
+    };
+
 }
 
 
