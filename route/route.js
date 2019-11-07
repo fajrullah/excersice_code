@@ -20,10 +20,25 @@ module.exports = function(app) {
      * Data first_name, last_name
      */
     app
-      .route('/spec')
+      .route('/detailbuku')
       .post( (req, res) => {
         Buku.setBuku(req)
         Buku.detailBuku()
+          .then(result => res.json(result))
+          .catch(err => console.log(err))
+      })
+    app
+      .route('/getRelationship')
+      .get( (req, res) => {
+        Buku.allBukuByPenulis()
+          .then(result => res.json(result))
+          .catch(err => console.log(err))
+      })
+    app
+      .route('/detailByPenulis')
+      .post( (req, res) => {
+        Buku.setBuku(req)
+        Buku.detailBukuByPenulis()
           .then(result => res.json(result))
           .catch(err => console.log(err))
       })

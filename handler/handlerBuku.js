@@ -1,5 +1,6 @@
 'use strict'
 const Buku = require('../models/Buku')
+const Penulis = require('../models/Penulis')
 
 class handlerBuku {
     constructor(obj){
@@ -37,6 +38,26 @@ class handlerBuku {
             .catch(error => console.log(error))
     };
 
+    allBukuByPenulis = async () => {
+        return await Buku.findAll({
+                include: 'penulis',
+                order: [ [ 'buku_name', 'ASC' ]]
+            })
+            .then(affectedRow => affectedRow)
+            .catch(error => console.log(error))
+    };
+    detailBukuByPenulis = async () => {
+        return await Buku.findAll({
+            include: [{ 
+                model : Penulis,
+                as: 'penulis',
+                where : this.req.body
+                 }],
+                order: [ [ 'buku_name', 'ASC' ]]
+            })
+            .then(affectedRow => affectedRow)
+            .catch(error => console.log(error))
+    };
 }
 
 
