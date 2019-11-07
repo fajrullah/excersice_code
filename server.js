@@ -13,10 +13,10 @@ const server = () => {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     routes(app);
-    // app.use(express.static(path.join(__dirname,'/client/build')))
-    // app.get('/client',(req,res) => {
-    //     res.sendFile(path.join(__dirname,'/client/build/index.html'));
-    //   })
+    app.use(express.static(path.join(__dirname,'/client/build')))
+    app.get('/client',(req,res) => {
+        res.sendFile(path.join(__dirname,'/client/build/index.html'));
+      })
     app.listen(port, () => {
         console.log(`RUNNING ${port}`)
     });
